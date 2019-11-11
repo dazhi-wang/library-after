@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manage.module.mapper.ReadersMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.manage.module.entity.Readers">
+        <id column="id" property="id" />
+        <result column="reader_name" property="readerName" />
+        <result column="reader_age" property="readerAge" />
+        <result column="reader_sex" property="readerSex" />
+        <result column="reader_id" property="readerId" />
+        <result column="reader_adderss" property="readerAdderss" />
+        <result column="reader_prestige" property="readerPrestige" />
+        <result column="reader_number" property="readerNumber" />
+        <result column="expire_time" property="expireTime" />
+        <result column="deposit" property="deposit" />
+        <result column="create_id" property="createId" />
+        <result column="create_name" property="createName" />
+        <result column="update_id" property="updateId" />
+        <result column="update_name" property="updateName" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+</mapper>

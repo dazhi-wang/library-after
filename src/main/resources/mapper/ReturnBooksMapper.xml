@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manage.module.mapper.ReturnBooksMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.manage.module.entity.ReturnBooks">
+        <id column="id" property="id" />
+        <result column="book_id" property="bookId" />
+        <result column="return_name" property="returnName" />
+        <result column="overdue" property="overdue" />
+        <result column="overtime_money" property="overtimeMoney" />
+        <result column="overtime_days" property="overtimeDays" />
+        <result column="readers_id" property="readersId" />
+        <result column="borrow_time" property="borrowTime" />
+        <result column="expect_return_time" property="expectReturnTime" />
+        <result column="return_time" property="returnTime" />
+        <result column="create_id" property="createId" />
+        <result column="create_name" property="createName" />
+        <result column="create_time" property="createTime" />
+        <result column="update_id" property="updateId" />
+        <result column="update_name" property="updateName" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+</mapper>
