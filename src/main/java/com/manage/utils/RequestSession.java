@@ -1,5 +1,6 @@
 package com.manage.utils;
 
+import com.manage.module.entity.User;
 import org.apache.tomcat.util.http.fileupload.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -21,8 +22,9 @@ import javax.servlet.http.HttpSession;
  */
 public class RequestSession<T> {
     private HttpSession httpSession;
+    private HttpServletRequest httpServletRequest;
     public RequestSession() {
-        HttpServletRequest httpServletRequest = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
+        httpServletRequest  = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
         httpSession = httpServletRequest.getSession();
         httpSession.setMaxInactiveInterval(30*60);
     }
@@ -34,5 +36,11 @@ public class RequestSession<T> {
     }
     public String getSessionId() {
         return httpSession.getId();
+    }
+    public User getUser() {
+        return (User) httpSession.getAttribute("user");
+    }
+    public void setUser(User user) {
+        httpSession.setAttribute("user",user);
     }
 }

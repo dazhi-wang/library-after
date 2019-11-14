@@ -2,6 +2,8 @@ package com.manage.module.entity;
 
 import java.math.BigDecimal;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
@@ -55,16 +57,19 @@ public class ReturnBooks extends Model<ReturnBooks> {
     /**
      * 借书日期
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss",timezone = "GMT+8")
     private LocalDateTime borrowTime;
 
     /**
      * 预计归还日期
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss",timezone = "GMT+8")
     private LocalDateTime expectReturnTime;
 
     /**
      * 实际归还日期
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss",timezone = "GMT+8")
     private LocalDateTime returnTime;
 
     /**
@@ -80,6 +85,7 @@ public class ReturnBooks extends Model<ReturnBooks> {
     /**
      * 创建日期
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss",timezone = "GMT+8")
     private LocalDateTime createTime;
 
     /**
@@ -95,6 +101,7 @@ public class ReturnBooks extends Model<ReturnBooks> {
     /**
      * 修改日期
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss",timezone = "GMT+8")
     private LocalDateTime updateTime;
 
 

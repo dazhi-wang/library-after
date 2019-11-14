@@ -6,10 +6,7 @@ import com.manage.module.service.UserService;
 import com.manage.utils.R;
 import com.manage.utils.RequestSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -30,10 +27,8 @@ public class UserController {
     private UserService userService;
     // 用户登录接口
     @PostMapping("/login")
-    public R login(HttpServletRequest request, HttpServletResponse response) {
-        RequestSession<User> requestSession = new RequestSession<>();
-        response.addCookie(new Cookie("u_id",requestSession.getSessionId()));
-        return  new R(true);
+    public R login(HttpServletResponse response,@RequestBody User user) {
+        return  new R(userService.login(user,response));
     }
     // 用户注册
     @PostMapping("/save")
@@ -45,7 +40,7 @@ public class UserController {
     // 用户列表
     @GetMapping("/page")
     public R<Page> page(Page page,User user) {
-        return new R(userService.page(page, Wrappers.query(user)));
+        return new R(userService.queryPageList(page,user));
     }
 }
 
