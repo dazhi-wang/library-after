@@ -17,9 +17,21 @@
         <result column="update_time" property="updateTime" />
         <result column="del_flag" property="delFlag"></result>
     </resultMap>
+    <!--  用户列表映射  -->
+    <resultMap id="ListResultMap" type="java.util.HashMap">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="holder" property="holder" />
+        <result column="phone" property="phone" />
+        <result column="cread_name" property="creadName" />
+        <result column="create_time" property="createTime" javaType="java.time.LocalDateTime"/>
+        <result column="phone" property="phone" />
+        <result column="ip" property="ip" />
+        <result column="login_time" property="loginTime"></result>
+    </resultMap>
     <!--  列表字段  -->
     <sql id="listSql">
-        id,username,password,holder,phone
+        id,username,holder,phone,cread_name,create_time
     </sql>
     <!--  用户登录  -->
     <select id="login" resultMap="BaseResultMap">
@@ -28,9 +40,20 @@
         FROM sys_user WHERE del_flag=0 AND username=#{username} AND password=#{password}
     </select>
     <!--  查询用户列表  -->
-    <select id="queryPageList" resultMap="BaseResultMap">
+    <select id="queryPageList" resultMap="ListResultMap">
         SELECT
-        <include refid="listSql"/>
-        FROM sys_user WHERE del_flag=0
+            su.id,
+            su.username,
+            su.holder,
+            su.phone,
+            su.cread_name,
+            su.create_time,
+            sul.ip,
+            sul.login_time
+        FROM
+            sys_user AS su
+            LEFT JOIN ( SELECT * FROM ( SELECT user_id, ip, login_time FROM sys_user_log ORDER BY login_time DESC ) syu GROUP BY syu.user_id ) AS sul ON ( su.id = sul.user_id )
+        WHERE
+            su.del_flag = 0
     </select>
 </mapper>

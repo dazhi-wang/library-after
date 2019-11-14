@@ -27,8 +27,8 @@ public class UserController {
     private UserService userService;
     // 用户登录接口
     @PostMapping("/login")
-    public R login(HttpServletResponse response,@RequestBody User user) {
-        return  new R(userService.login(user,response));
+    public R login(HttpServletRequest httpServletRequest,HttpServletResponse response,@RequestBody User user) {
+        return  new R(userService.login(user,httpServletRequest,response));
     }
     // 用户注册
     @PostMapping("/save")

@@ -1,12 +1,10 @@
 package com.manage.module.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;
@@ -38,7 +36,6 @@ public class User extends Model<User> {
     /**
      * 密码
      */
-    @JsonIgnore
     private String password;
 
     /**

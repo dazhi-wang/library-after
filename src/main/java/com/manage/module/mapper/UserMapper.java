@@ -5,6 +5,7 @@ import com.manage.module.entity.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -18,5 +19,5 @@ public interface UserMapper extends BaseMapper<User> {
     // 用户登录
     User login(User user);
     // 查询用户列表
-    Page<User> queryPageList(Page page,User user);
+    Page<Map<String,Object>> queryPageList(Page page, User user);
 }
