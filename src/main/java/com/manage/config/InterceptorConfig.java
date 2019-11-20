@@ -31,7 +31,10 @@ public class InterceptorConfig implements HandlerInterceptor {
             if(cookie.getName().equals("u_id")) {
                 if(cookie.getValue().equals(requestSession.getSessionId())) {
                     // 判断服务器端sessionId与客户端id相同则放行
-                    return  true;
+                    // 判断用户是否登录
+                    if(requestSession.getUser() != null) {
+                        return  true;
+                    }
                 }
             }
         }

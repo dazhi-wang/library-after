@@ -12,6 +12,7 @@
         <result column="update_name" property="updateName" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
+        <result column="del_flag" property="delFlag"></result>
     </resultMap>
 
 </mapper>

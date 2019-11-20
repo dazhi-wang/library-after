@@ -1,5 +1,9 @@
 server:
   port: 8088
+  servlet:
+    session:
+      cookie:
+        name: u_id
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver

@@ -1,5 +1,7 @@
 package com.manage.module.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -23,6 +25,7 @@ public class Role extends Model<Role> {
     /**
      * 主键（UUID）
      */
+    @TableId(type = IdType.UUID)
     private String id;
 
     /**
@@ -62,6 +65,18 @@ public class Role extends Model<Role> {
     @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss",timezone = "GMT+8")
     private LocalDateTime updateTime;
 
+    /**
+     * 删除状态 （-1 删除  0 正常）
+     */
+    private String delFlag;
+
+    public String getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(String delFlag) {
+        this.delFlag = delFlag;
+    }
 
     public String getId() {
         return id;

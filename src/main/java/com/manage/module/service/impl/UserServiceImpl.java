@@ -36,7 +36,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         if(resultUser != null) {
             // 将用户信息存入session并将sessionId放入Cookie中返回给浏览器
             RequestSession<User> requestSession = new RequestSession<>();
-            httpServletResponse.addCookie(new Cookie("u_id",requestSession.getSessionId()));
+//            httpServletResponse.addCookie(new Cookie("u_id",requestSession.getSessionId()));
             requestSession.setUser(resultUser);
             // 用户登录成功添加登录日志
             UserLog userLog = UserLog.builder()
