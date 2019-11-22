@@ -104,6 +104,18 @@ public class Readers extends Model<Readers> {
     @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss",timezone = "GMT+8")
     private LocalDateTime updateTime;
 
+    /**
+     * 删除状态（-1 删除  0 正常）
+     */
+    private String delFlag;
+
+    public String getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(String delFlag) {
+        this.delFlag = delFlag;
+    }
 
     public String getId() {
         return id;

@@ -1,4 +1,12 @@
 package com.manage.module.controller;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.manage.module.entity.BoorowBooks;
+import com.manage.module.entity.Readers;
+import com.manage.module.service.BoorowBooksService;
+import com.manage.utils.R;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,8 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2019-11-11
  */
 @RestController
-@RequestMapping("/boorowbooks/boorow-books")
+@RequestMapping("/boorowbooks")
 public class BoorowBooksController {
-
+    @Autowired
+    private BoorowBooksService boorowBooksService;
+    // 分页查询读者列表
+    @GetMapping("/page")
+    public R page(Page page, BoorowBooks boorowBooks) {
+        return new R(boorowBooksService.page(page, Wrappers.lambdaQuery(boorowBooks)));
+    }
 }
 
