@@ -11,7 +11,7 @@
  Target Server Version : 50644
  File Encoding         : 65001
 
- Date: 20/11/2019 19:58:50
+ Date: 22/11/2019 17:58:03
 */
 
 SET NAMES utf8mb4;
@@ -37,20 +37,21 @@ CREATE TABLE `b_books`  (
   `update_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '修改人id',
   `update_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '修改人名称',
   `update_time` timestamp(0) NULL DEFAULT NULL COMMENT '修改日期',
+  `del_flag` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0' COMMENT '删除状态（-1 删除  0 正常）',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '图书表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of b_books
 -- ----------------------------
-INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9f20', '史记', '张大可', '商务印书馆', '是', '古籍', '3-2', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:49:25', NULL, NULL, NULL);
-INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9fd2', 'Android从入门到精通', '孙更新', '电子工业出版社', '是', '计算机技术', '1-1', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:40:47', NULL, NULL, NULL);
-INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9fd4', 'HTML5从入门到精通', '明日科技', '清华大学出版社', '是', '计算机技术', '1-1', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:41:53', NULL, NULL, NULL);
-INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9fd5', '妙生活', '蓝七', '北京科学技术出版社', '是', '生活', '2-1', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:43:34', NULL, NULL, NULL);
-INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9fd6', '浮生六记', '沈复', '上海古籍出版社', '是', '散文', '3-1', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:46:49', NULL, NULL, NULL);
-INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9fd7', '愿你迷路到我身旁', '蕊希', '百花洲文艺出版社 ', '是', '青春文学', '4-1', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:46:53', NULL, NULL, NULL);
-INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9fd9', '乖，摸摸头2.0', '大冰', '北京联合出版有限公司', '是', '社会', '5-1', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:48:27', NULL, NULL, NULL);
-INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9fde', 'java从入门到精通', '国家863中部软件孵化器', '人民邮电出版社', '是', '计算机技术', '1-1', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:39:08', NULL, NULL, NULL);
+INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9f20', '史记', '张大可', '商务印书馆', '是', '古籍', '3-2', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:49:25', NULL, NULL, NULL, '');
+INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9fd2', 'Android从入门到精通', '孙更新', '电子工业出版社', '是', '计算机技术', '1-1', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:40:47', NULL, NULL, NULL, '');
+INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9fd4', 'HTML5从入门到精通', '明日科技', '清华大学出版社', '是', '计算机技术', '1-1', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:41:53', NULL, NULL, NULL, '');
+INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9fd5', '妙生活', '蓝七', '北京科学技术出版社', '是', '生活', '2-1', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:43:34', NULL, NULL, NULL, '');
+INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9fd6', '浮生六记', '沈复', '上海古籍出版社', '是', '散文', '3-1', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:46:49', NULL, NULL, NULL, '');
+INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9fd7', '愿你迷路到我身旁', '蕊希', '百花洲文艺出版社 ', '是', '青春文学', '4-1', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:46:53', NULL, NULL, NULL, '');
+INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9fd9', '乖，摸摸头2.0', '大冰', '北京联合出版有限公司', '是', '社会', '5-1', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:48:27', NULL, NULL, NULL, '');
+INSERT INTO `b_books` VALUES ('2b97789e7c924abab5ac94d9fde', 'java从入门到精通', '国家863中部软件孵化器', '人民邮电出版社', '是', '计算机技术', '1-1', '1', '2', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', '2019-11-20 19:39:08', NULL, NULL, NULL, '');
 
 -- ----------------------------
 -- Table structure for b_boorow_books
@@ -99,14 +100,15 @@ CREATE TABLE `b_readers`  (
   `update_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '修改人名称',
   `create_time` timestamp(0) NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '创建时间',
   `update_time` timestamp(0) NULL DEFAULT NULL COMMENT '修改时间',
+  `del_flag` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '删除状态（-1 删除  0 正常）',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '读者表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of b_readers
 -- ----------------------------
-INSERT INTO `b_readers` VALUES ('1e80c192800c0333fd7d8cc7803b5ae2', '王红', 19, '女', '312452322215463252', '山东省', 100, 0, '2019-11-20 19:53:15', 100, '1e80c192800c0333fd7d8cc7803b5aed', '管理员', NULL, NULL, '2019-11-20 19:52:32', NULL);
-INSERT INTO `b_readers` VALUES ('1e80c192800c0333fd7d8cc7803b5ae3', '张三', 21, '男', '312452322215463251', '山东省', 100, 0, '2019-11-20 19:52:34', 100, '1e80c192800c0333fd7d8cc7803b5aed', '管理员', NULL, NULL, '2019-11-20 19:52:32', NULL);
+INSERT INTO `b_readers` VALUES ('1e80c192800c0333fd7d8cc7803b5ae2', '王红', 19, '女', '312452322215463252', '山东省', 100, 0, '2019-11-20 19:53:15', 100, '1e80c192800c0333fd7d8cc7803b5aed', '管理员', NULL, NULL, '2019-11-20 19:52:32', NULL, '0');
+INSERT INTO `b_readers` VALUES ('1e80c192800c0333fd7d8cc7803b5ae3', '张三', 21, '男', '312452322215463251', '山东省', 100, 0, '2019-11-20 19:52:34', 100, '1e80c192800c0333fd7d8cc7803b5aed', '管理员', NULL, NULL, '2019-11-20 19:52:32', NULL, '0');
 
 -- ----------------------------
 -- Table structure for b_return_books
@@ -129,6 +131,7 @@ CREATE TABLE `b_return_books`  (
   `update_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '修改人id',
   `update_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '修改人名称',
   `update_time` timestamp(0) NULL DEFAULT NULL COMMENT '修改日期',
+  `del_flag` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '删除状态（-1 删除  0 正常）',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '还书表' ROW_FORMAT = Compact;
 
