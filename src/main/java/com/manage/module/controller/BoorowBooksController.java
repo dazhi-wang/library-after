@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BoorowBooksController {
     @Autowired
     private BoorowBooksService boorowBooksService;
-    // 分页查询读者列表
+    // 分页查询借书列表
     @GetMapping("/page")
     public R page(Page page, BoorowBooks boorowBooks) {
         return new R(boorowBooksService.page(page, Wrappers.lambdaQuery(boorowBooks)));

@@ -7,8 +7,8 @@ import java.io.Serializable;
 
 /**
  * @Description 全局统一返回对象
- * @auther wangjian
- * @create 2019-02-18 15:23
+ * @auther liujiajia
+ * @create 2019-11-11
  */
 
 @Builder
