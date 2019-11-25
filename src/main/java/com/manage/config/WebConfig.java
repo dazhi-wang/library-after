@@ -22,11 +22,21 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  */
 @Configuration
 public class WebConfig extends WebMvcConfigurationSupport {
+    @Value("${my-file.upload.url}")
+    private String imagesPath;//图片地址
+    // 配置静态资源访问
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        // 拦截所以/static/**请求，并将路径转到file本地磁盘下
+        registry.addResourceHandler("/static/**").addResourceLocations("file:"+imagesPath);
+    }
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // 配置拦截路径
         registry.addInterceptor(new InterceptorConfig())
+                // 拦截所有请求
                 .addPathPatterns("/**")
-                .excludePathPatterns("/user/login","/upload/**");
+                // 不拦截请求
+                .excludePathPatterns("/user/login","/static/**");
     }
 }
