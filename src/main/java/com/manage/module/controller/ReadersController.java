@@ -30,19 +30,19 @@ public class ReadersController {
 
     // 新增读者
     @PostMapping("/save")
-    public R save(Readers readers) {
+    public R save(@RequestBody Readers readers) {
         return new R(readersService.save(readers));
     }
 
     // 修改读者
     @PutMapping("/update")
-    public R update(Readers readers) {
+    public R update(@RequestBody Readers readers) {
         return new R(readersService.updateById(readers));
     }
 
     // 删除读者
     @DeleteMapping("/delete")
-    public R delete(Readers readers) {
+    public R delete(@RequestBody Readers readers) {
         readers.setDelFlag("-1");
         return new R(readersService.updateById(readers));
     }
