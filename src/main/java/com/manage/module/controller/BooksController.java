@@ -29,19 +29,19 @@ public class BooksController {
 
     // 新增图书
     @PostMapping("/save")
-    public R save(Books books) {
+    public R save(@RequestBody Books books) {
         return new R(booksService.save(books));
     }
 
     // 修改图书
     @PutMapping("/update")
-    public R update(Books books) {
+    public R update(@RequestBody Books books) {
         return new R(booksService.updateById(books));
     }
 
     // 删除图书
     @DeleteMapping("/delete")
-    public R delete(Books books) {
+    public R delete(@RequestBody Books books) {
         books.setDelFlag("-1");
         return new R(booksService.updateById(books));
     }
