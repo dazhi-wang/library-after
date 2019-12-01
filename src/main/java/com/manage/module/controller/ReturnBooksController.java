@@ -24,7 +24,7 @@ public class ReturnBooksController {
     // 分页查询还书列表
     @GetMapping("/page")
     public R page(Page page, ReturnBooks returnBooks) {
-        return new R(returnBooksService.page(page, Wrappers.lambdaQuery(returnBooks)));
+        return new R(returnBooksService.queryReturnBooks(page, returnBooks));
     }
 }
 

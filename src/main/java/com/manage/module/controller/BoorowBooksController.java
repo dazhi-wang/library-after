@@ -26,7 +26,7 @@ public class BoorowBooksController {
     // 分页查询借书列表
     @GetMapping("/page")
     public R page(Page page, BoorowBooks boorowBooks) {
-        return new R(boorowBooksService.page(page, Wrappers.lambdaQuery(boorowBooks)));
+        return new R(boorowBooksService.queryBoorowBooks(page, boorowBooks));
     }
 }
 

@@ -21,5 +21,24 @@
         <result column="update_name" property="updateName" />
         <result column="update_time" property="updateTime" />
     </resultMap>
-
+    <select id="queryReturnBooks" resultType="java.util.HashMap">
+        SELECT
+            br.id as readerId,
+            br.reader_name as readerName,
+            br.reader_sex as readerSex,
+            bb.book_name as bookName,
+            bb.front_image_url as frontImageUrl,
+            bb.id as bookId,
+            brb.return_name as returnName,
+            brb.borrow_time as borrowTime,
+            brb.expect_return_time as expectReturnTime,
+            brb.return_time as returnTime,
+            brb.overdue,
+            brb.overtime_money as overtimeMoney,
+            brb.overtime_days as overtimeDays
+        FROM
+            `b_return_books` brb
+            LEFT JOIN b_books bb ON ( brb.book_id = bb.id )
+            LEFT JOIN b_readers br ON ( brb.readers_id = br.id )
+    </select>
 </mapper>

@@ -16,5 +16,19 @@
         <result column="update_name" property="updateName" />
         <result column="update_time" property="updateTime" />
     </resultMap>
-
+    <select id="queryBoorowBooks" resultType="java.util.HashMap">
+        SELECT
+            br.id as readerId,
+            br.reader_name as readerName,
+            br.reader_sex as readerSex,
+            bb.book_name as bookName,
+            bb.front_image_url as frontImageUrl,
+            bb.id as bookId,
+            bbb.borrow_time as borrowTime,
+            bbb.expect_return_time as expectReturnTime
+        FROM
+            `b_boorow_books` bbb
+            LEFT JOIN b_books bb ON ( bbb.book_id = bb.id )
+            LEFT JOIN b_readers br ON ( bbb.readers_id = br.id )
+    </select>
 </mapper>
