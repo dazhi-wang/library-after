@@ -2,9 +2,13 @@ package com.manage.module.entity;
 
 import java.math.BigDecimal;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;
@@ -25,6 +29,7 @@ public class ReturnBooks extends Model<ReturnBooks> {
     /**
      * 主键
      */
+    @TableId(type = IdType.UUID)
     private String id;
 
     /**
@@ -60,19 +65,24 @@ public class ReturnBooks extends Model<ReturnBooks> {
     /**
      * 借书日期
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss",timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private LocalDateTime borrowTime;
 
     /**
      * 预计归还日期
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss",timezone = "GMT+8")
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private LocalDateTime expectReturnTime;
 
     /**
      * 实际归还日期
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss",timezone = "GMT+8")
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private LocalDateTime returnTime;
 
     /**
@@ -88,7 +98,9 @@ public class ReturnBooks extends Model<ReturnBooks> {
     /**
      * 创建日期
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss",timezone = "GMT+8")
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private LocalDateTime createTime;
 
     /**
@@ -104,8 +116,21 @@ public class ReturnBooks extends Model<ReturnBooks> {
     /**
      * 修改日期
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss",timezone = "GMT+8")
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private LocalDateTime updateTime;
+
+    @TableField(exist = false)
+    private String boorowId;
+
+    public String getBoorowId() {
+        return boorowId;
+    }
+
+    public void setBoorowId(String boorowId) {
+        this.boorowId = boorowId;
+    }
 
     public String getId() {
         return id;

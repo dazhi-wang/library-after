@@ -24,6 +24,7 @@
             bb.book_name as bookName,
             bb.front_image_url as frontImageUrl,
             bb.id as bookId,
+            bbb.id,
             bbb.borrow_time as borrowTime,
             bbb.expect_return_time as expectReturnTime
         FROM
