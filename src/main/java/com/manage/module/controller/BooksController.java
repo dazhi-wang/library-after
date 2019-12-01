@@ -24,7 +24,7 @@ public class BooksController {
     // 分页查询图书列表
     @GetMapping("/page")
     public R page(Page page, Books books) {
-        return new R(booksService.page(page, Wrappers.lambdaQuery(books)));
+        return new R(booksService.page(page, Wrappers.lambdaQuery(books).eq(Books::getDelFlag,"0")));
     }
 
     // 新增图书
