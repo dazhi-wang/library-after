@@ -23,6 +23,6 @@ logging:
 my-file:
   upload:
     # 文件上传位置
-    url: E:/work/JiaJiaBiYeSheJi/code/manage/upload/
+    url: E:/work/manage/upload/
     # 文件上传后回显前缀
     prefix: /static
