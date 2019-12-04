@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
@@ -51,9 +52,9 @@ public class BoorowBooks extends Model<BoorowBooks> {
      * 预计归还日期
      */
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    private LocalDateTime expectReturnTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    private LocalDate expectReturnTime;
 
     /**
      * 创建人id
@@ -124,11 +125,11 @@ public class BoorowBooks extends Model<BoorowBooks> {
         this.borrowTime = borrowTime;
     }
 
-    public LocalDateTime getExpectReturnTime() {
+    public LocalDate getExpectReturnTime() {
         return expectReturnTime;
     }
 
-    public void setExpectReturnTime(LocalDateTime expectReturnTime) {
+    public void setExpectReturnTime(LocalDate expectReturnTime) {
         this.expectReturnTime = expectReturnTime;
     }
 
