@@ -224,9 +224,6 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 INSERT INTO `sys_user` VALUES ('1e80c192800c0333fd7d8cc7803b5afd', 'test', '812a26358ab25a4046525ed71f3a0b10', '测试用户', '15165017856', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', NULL, NULL, '2019-11-14 17:33:27', NULL, '0');
 INSERT INTO `sys_user` VALUES ('5961fa56378a37e6030bc566a1664b98', 'admin', 'admin123', '管理员', '15165201324', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', NULL, NULL, '2019-11-26 06:52:26', NULL, '0');
-INSERT INTO `sys_user` VALUES ('7c35887a350cd356098adfbc41954651', 'liujiajia', 'd0a47f7d349059a5a8dd18a7c4d19de5', '刘佳佳', '15165023456', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', NULL, NULL, '2019-11-17 12:25:01', NULL, '0');
-INSERT INTO `sys_user` VALUES ('dcf934c513ff77ae83929a8af1a03908', 'xuyanqi', 'de32b1906ac28f1e467d6a876bc453d7', '许言琪', '15513546852', '1e80c192800c0333fd7d8cc7803b5aed', '管理员', NULL, NULL, '2019-11-17 12:19:28', NULL, '-1');
-
 -- ----------------------------
 -- Table structure for sys_user_log
 -- ----------------------------
